@@ -8,6 +8,13 @@ class Tiedot {
       200: "success",
       201: "success",
     };
+
+    this.version().catch((err) => {
+      console.log(`
+Server: ${url}
+Error: ${err.message}
+      `);
+    });
   }
 
   url(endpoint) {
@@ -19,6 +26,14 @@ class Tiedot {
       status: this.STATUS_MAP[statusCode] || "error",
       data,
     };
+  }
+
+  async version() {
+    const { statusCode, data } = await curly.get(this.url(`/version`));
+
+    return this.returnJSON(statusCode, {
+      version: data,
+    });
   }
 
   async create(name) {
@@ -90,5 +105,7 @@ class Tiedot {
     });
   }
 }
+
+new Tiedot("http://localhost:5050");
 
 module.exports = Tiedot;
