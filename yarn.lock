@@ -738,13 +738,6 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.11.0.tgz#d61f46d83b2519250e2784daf5b09479a8b41c59"
   integrity sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
 
-axios@^0.21.1:
-  version "0.21.1"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
-  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
-  dependencies:
-    follow-redirects "^1.10.0"
-
 babel-jest@^27.1.0:
   version "27.1.0"
   resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-27.1.0.tgz#e96ca04554fd32274439869e2b6d24de9d91bc4e"
@@ -1286,11 +1279,6 @@ find-up@^4.0.0, find-up@^4.1.0:
   dependencies:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
-
-follow-redirects@^1.10.0:
-  version "1.14.2"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.2.tgz#cecb825047c00f5e66b142f90fed4f515dec789b"
-  integrity sha512-yLR6WaE2lbF0x4K2qE2p9PEXKLDjUjnR/xmjS3wHAYxtlsI9MLLBJUZirAHKzUZDGLxje7w/cXR49WOUo4rbsA==
 
 forever-agent@~0.6.1:
   version "0.6.1"
@@ -2326,10 +2314,10 @@ node-int64@^0.4.0:
   resolved "https://registry.yarnpkg.com/node-int64/-/node-int64-0.4.0.tgz#87a9065cdb355d3182d8f94ce11188b825c68a3b"
   integrity sha1-h6kGXNs1XTGC2PlM4RGIuCXGijs=
 
-node-libcurl@^2.3.3:
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/node-libcurl/-/node-libcurl-2.3.3.tgz#717a5d43d079eb257da5ce96156b91452f446b09"
-  integrity sha512-F97m95qppV/Kb/h5EtzpGLj1uZIAG9e/4XZPXkZ5nsYF3vK5IQ5V/c5HD1L/4sBV+vV0qGAXi5ygUAEHI7E2wA==
+node-libcurl@^2.3.1-0:
+  version "2.3.1-0"
+  resolved "https://registry.yarnpkg.com/node-libcurl/-/node-libcurl-2.3.1-0.tgz#a9c125cfd0803c9497bb0eb70d7f73b139e41d0e"
+  integrity sha512-QAwnX+uvanrdbyYZw6sMacgw8h54ZB8lg3u9mliIue7uY8C4HlqIRBznvrbm7nXaCFldmAT5rNyyCJJeuZB51w==
   dependencies:
     env-paths "2.2.0"
     nan "2.14.1"
