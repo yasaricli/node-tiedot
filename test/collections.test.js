@@ -3,48 +3,81 @@ const Tiedot = require("../index");
 // Bucket Tiedot
 const bucket = new Tiedot("http://localhost:5050");
 
-test("Create Collection", async () => {
-  const request = await bucket.create("Users");
-
-    console.log(request.status);
-
-  // expect(request.status).toBe("success");
-});
-
-test("Drop Collection", async () => {
-  // expect(true).toBe(true);
-});
-
-async () => {
-  const server = new Tiedot("http://localhost:5050");
-
-  const dropRequest = await server.drop("Users");
-  console.log(dropRequest, "DROP COLLECTION");
-
-  const collectionRequest = await server.create("Users");
-  console.log(collectionRequest, "CREATE COLLECTION");
-
-  const doc = await server.insert(collectionRequest.data.collection, {
-    username: "yasaricli",
+describe("Collections Create, Rename, Drop", () => {
+  beforeAll(async () => {
+    // drop table
+    await bucket.drop("Users");
+    await bucket.drop("Contacts");
   });
-  console.log(doc, "INSERT DATA");
 
-  const get = await server.get(collectionRequest.data.collection, doc.data.id);
-  console.log(get, "GET DATA");
+  test("Create", async () => {
+    const request = await bucket.create("Users");
 
-  const update = await server.update(
-    collectionRequest.data.collection,
-    doc.data.id,
-    {
-      username: "ali",
-    }
-  );
+    expect(request.status).toBe("success");
+  });
 
-  console.log(update, "UPDATE DATA");
+  test("Rename", async () => {
+    const request = await bucket.rename("Users", "Contacts");
 
-  const del = await server.remove(
-    collectionRequest.data.collection,
-    doc.data.id
-  );
-  console.log(del, "REMOVE DATA");
-};
+    expect(request.status).toBe("success");
+  });
+
+  test("Drop", async () => {
+    const request = await bucket.drop("Contacts");
+
+    expect(request.status).toBe("success");
+  });
+});
+
+describe("Insert, Get, Remove", () => {
+  let id;
+
+  beforeAll(async () => {
+    await bucket.create("Users");
+  });
+
+  test("Insert", async () => {
+    const request = await bucket.insert("Users", {
+      username: "yasaricli",
+    });
+
+    expect(request.status).toBe("success");
+  });
+
+  test("Insert", async () => {
+    const request = await bucket.insert("Users", {
+      username: "yasaricli",
+    });
+
+    expect(request.status).toBe("success");
+
+    id = request.data.id;
+  });
+
+  test("Get", async () => {
+    const request = await bucket.get("Users", id);
+
+    expect(request.status).toBe("success");
+    expect(request.data.username).toBe("yasaricli");
+  });
+
+  test("Update", async () => {
+    const updateRequest = await bucket.update("Users", id, {
+      username: "osman",
+    });
+
+    // check updated
+    expect(updateRequest.status).toBe("success");
+
+    const getRequest = await bucket.get("Users", id);
+
+    expect(getRequest.status).toBe("success");
+    expect(getRequest.data.username).toBe("osman");
+  });
+
+  test("Remove", async () => {
+    const request = await bucket.remove("Users", id);
+
+    expect(request.status).toBe("success");
+  });
+});

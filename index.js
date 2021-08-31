@@ -28,6 +28,19 @@ class Tiedot {
 
     return this.returnJSON(statusCode, {
       collection: name,
+      message: data,
+    });
+  }
+
+  async rename(oldName, newName) {
+    const { statusCode, data } = await curly.get(
+      this.url(`/rename?old=${oldName}&new=${newName}`)
+    );
+
+    return this.returnJSON(statusCode, {
+      oldName,
+      newName,
+      message: data,
     });
   }
 
