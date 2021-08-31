@@ -1,6 +1,6 @@
 {
   "name": "tiedot",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Tiedot driver for Node.js.",
   "main": "index.js",
   "repository": "https://github.com/yasaricli/node-tiedot.git",
