@@ -2,7 +2,7 @@
 
 Node.js Tiedot client.
 
-## Installation
+## Installation
 
 To install tiedot, run:
 
