@@ -18,6 +18,42 @@ const Tiedot = require("tiedot");
 const client = new Tiedot("http://localhost:5050");
 ```
 
+## Usage
+
+### Manage collections
+
+```JS
+
+// Create collection
+await bucket.create("Users");
+
+// Rename Collection
+await bucket.rename("Users", "Contacts");
+
+// Drop collection
+await bucket.drop("Users");
+```
+
+### Manage documents
+
+```JS
+
+// Insert
+await bucket.insert("Users", {
+    username: "yasaricli",
+});
+
+// Get
+await bucket.insert("Users", "id");
+
+// Update
+const updateRequest = await bucket.update("Users", "id", {
+  username: "osman",
+});
+
+// Remove
+await bucket.remove("Users", "id");
+```
 
 ## Docker Run 
 
