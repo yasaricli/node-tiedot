@@ -15,7 +15,7 @@ This will download the Tiedot client and add a dependency entry in your **packag
 ```JS
 const Tiedot = require("tiedot");
 
-cons client = new Tiedot("http://localhost:5050");
+const client = new Tiedot("http://localhost:5050");
 ```
 
 
