@@ -1,0 +1,19 @@
+{
+  "name": "tiedot",
+  "version": "0.0.1",
+  "description": "Tiedot driver for Node.js.",
+  "main": "index.js",
+  "repository": "https://github.com/yasaricli/node-tiedot.git",
+  "author": "Yaşar İçli <yasaricli@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "node-libcurl": "^2.3.3"
+  },
+  "devDependencies": {
+    "jest": "^27.1.0"
+  }
+}
