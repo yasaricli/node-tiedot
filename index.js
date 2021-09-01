@@ -106,6 +106,4 @@ Error: ${err.message}
   }
 }
 
-new Tiedot("http://localhost:5050");
-
 module.exports = Tiedot;
